@@ -1,5 +1,5 @@
 # Import necessary functions and classes from different modules
-from utils import generate_real_samples, generate_fake_samples, generate_latent_points, load_real_samples, plot_history, generate_images
+from utils import generate_real_samples, generate_fake_samples, generate_latent_points, load_real_samples, generate_images
 from numpy import ones
 from matplotlib import pyplot
 from statistics import mean
@@ -42,16 +42,13 @@ def train(g_model, c_model, gan_model, dataset, latent_dim, n_epochs=10, n_batch
         g_hist.append(g_loss)
         # Print the progress
         print('> %d, c1=%.3f, c2=%.3f g=%.3f' % (i+1, c1_hist[-1], c2_hist[-1], g_loss))
-        # If at the end of an epoch, plot the losses
-        if (i+1) % bat_per_epo == 0:
-            pyplot.plot(i, label='crit_real')
-            pyplot.plot(g_model, label='crit_fake')
-            pyplot.plot(latent_dim, label='gen')
-            pyplot.legend()
-            pyplot.savefig('plot_line_plot_loss.png')
-            pyplot.close()
-    # Plot the history of losses
-    plot_history(c1_hist, c2_hist, g_hist)
+
+	pyplot.plot(c1_hist, label='crit_real')
+	pyplot.plot(c2_hist, label='crit_fake')
+	pyplot.plot(g_hist, label='gen')
+	pyplot.legend()
+	pyplot.savefig('plot_line_plot_loss.png')
+	pyplot.close()
 
 # Load the real samples from the MNIST dataset
 dataset = load_real_samples()
