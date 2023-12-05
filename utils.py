@@ -1,4 +1,3 @@
-# Import necessary libraries and modules
 import tensorflow as tf
 from keras import backend
 from keras.datasets.mnist import load_data

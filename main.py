@@ -1,4 +1,3 @@
-# Import necessary functions and classes from different modules
 from utils import generate_real_samples, generate_fake_samples, generate_latent_points, load_real_samples, generate_images
 from numpy import ones
 from matplotlib import pyplot
@@ -35,9 +34,8 @@ def train(g_model, c_model, gan_model, dataset, latent_dim, n_epochs=10, n_batch
         c2_hist.append(mean(c2_tmp))
         # Generate points in the latent space as input for the generator
         X_gan = generate_latent_points(latent_dim, n_batch)
-        # Create inverted labels for the fake samples
+        # Create labels for the fake samples
         y_gan = -ones((n_batch, 1))
-        # Train the generator (through the gan model, where the critic is frozen)
         g_loss = gan_model.train_on_batch(X_gan, y_gan)
         g_hist.append(g_loss)
         # Print the progress
