@@ -17,7 +17,7 @@ cd C:/Users/user/wgan_mnist
 pip python main.py
 ```
 ### Test
-
+Test of the WGANs over the number 3 (can be changed in the utils.load_real_samples).
 ![Generation of 25 of the number 3 using WGANs.](test.png)
 
 ### Appendix: Useful Articles
