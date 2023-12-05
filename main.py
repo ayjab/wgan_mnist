@@ -4,6 +4,7 @@ from numpy import ones
 from matplotlib import pyplot
 from statistics import mean
 from wgan import WGAN
+from tensorflow.keras.models import load_model
 
 # Define the training function for the WGAN
 def train(g_model, c_model, gan_model, dataset, latent_dim, n_epochs=10, n_batch=64, n_critic=5):
@@ -66,6 +67,19 @@ wgan_model = wgan.build_wgan()
 
 # Train the WGAN
 train(generator, discriminator, wgan_model, dataset, latent_dim)
+
+# Save the generator model for future use
+generator.save('generator_model.h5')
+# Save the discriminator model for future use
+discriminator.save('discriminator_model.h5')
+
+'''
+# Load the generator model
+generator = load_model('generator_model.h5', custom_objects={'CenterAround': CenterAround, 'wasserstein_loss': wasserstein_loss})
+
+# Load the discriminator model
+discriminator = load_model('discriminator_model.h5', custom_objects={'CenterAround': CenterAround, 'wasserstein_loss': wasserstein_loss})
+'''
 
 # Generate 25 images
 generate_images(generator, latent_dim, 25)
