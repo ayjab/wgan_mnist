@@ -17,6 +17,7 @@ cd C:/Users/user/wgan_mnist
 pip python main.py
 ```
 ### Test
+
 ![Generation of 25 of the number 3 using WGANs.](test.png)
 
 ### Appendix: Useful Articles
