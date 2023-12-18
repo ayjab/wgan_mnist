@@ -1,4 +1,4 @@
-from utils import generate_real_samples, generate_fake_samples, generate_latent_points, load_real_samples, generate_images
+from utils import generate_real_samples, generate_latent_points, load_real_samples, generate_images
 from numpy import ones
 from matplotlib import pyplot
 from statistics import mean
@@ -26,7 +26,7 @@ def train(g_model, c_model, gan_model, dataset, latent_dim, n_epochs=10, n_batch
             c_loss1 = c_model.train_on_batch(X_real, y_real)
             c1_tmp.append(c_loss1)
             # Generate fake samples and train the critic on them
-            X_fake, y_fake = generate_fake_samples(g_model, latent_dim, half_batch)
+            X_fake, y_fake = generate_images(g_model, latent_dim, half_batch)
             c_loss2 = c_model.train_on_batch(X_fake, y_fake)
             c2_tmp.append(c_loss2)
         # Store the average losses for this step
