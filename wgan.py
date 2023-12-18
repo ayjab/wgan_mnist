@@ -27,7 +27,7 @@ class WGAN:
         # Create a sequential model
         model = Sequential()
         # Add layers to the model
-        model.add(Conv2D(64, (4,4), strides=(2,2), padding='same', kernel_initializer=init, kernel_constraint=const, input_shape=in_shape))
+        model.add(Conv2D(64, (4,4), strides=(2,2), padding='same', kernel_initializer=init, kernel_constraint=const, input_shape=img_shape))
         model.add(BatchNormalization())
         model.add(LeakyReLU(alpha=0.2))
         model.add(Conv2D(64, (4,4), strides=(2,2), padding='same', kernel_initializer=init, kernel_constraint=const))
