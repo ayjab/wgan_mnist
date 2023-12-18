@@ -5,9 +5,9 @@ This project trains a WGAN on the MNIST dataset to generate images of handwritte
 
 The Wasserstein Generative Adversarial Network (WGAN) is a variant of generative adversarial network (GAN).
 The aim of GANs is to learn how to generate new data that looks similar to the training set.
-WAGNs use the 1-Wasserstein distance as an alternative to the Jensen-Shannon divergence implemented in traditional GANs.
+WGANs use the 1-Wasserstein distance as an alternative to the Jensen-Shannon divergence implemented in traditional GANs.
 The original GAN method is based on the GAN game, a zero-sum game with 2 players: generator and discriminator. <br>
-For additional details, you can refer to several important articles in the appendix.
+For additional details, you can refer to the appendix.
 
 ### Usage 
 ```
